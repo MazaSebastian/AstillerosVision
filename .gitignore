@@ -1,0 +1,8 @@
+
+# Large video files
+*.mov
+*.mp4
+node_modules
+
+Version LowCost/node_modules/
+Version LowCost/.next/
