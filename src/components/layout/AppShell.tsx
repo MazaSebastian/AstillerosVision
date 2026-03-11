@@ -14,6 +14,8 @@ import { AdminProvider } from "@/context/AdminContext";
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdmin = pathname.startsWith("/admin");
+  const isConfigurador = pathname === "/configurador";
+  const showChrome = !isAdmin && !isConfigurador;
 
   return (
     <AdminProvider>
@@ -21,19 +23,19 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <CartProvider>
           {!isAdmin && (
             <>
-              <AnimatedBackground />
+              {!isConfigurador && <AnimatedBackground />}
               <LanguageSelector />
               <Navbar />
             </>
           )}
           <main className={isAdmin ? "" : "min-h-screen"}>{children}</main>
-          {!isAdmin && (
+          {showChrome && (
             <>
               <Footer />
               <WhatsAppButton />
-              <ChatBot />
             </>
           )}
+          {!isAdmin && <ChatBot />}
         </CartProvider>
       </LanguageProvider>
     </AdminProvider>
