@@ -34,7 +34,7 @@ function ConfiguradorContent() {
     selectedBoat.colors.find((c) => c.id === selectedColorId)?.hex ?? selectedBoat.colors[0].hex;
 
   return (
-    <div className="flex flex-col lg:flex-row h-[calc(100vh-5rem)] pt-20 bg-dark-950">
+    <div className="flex flex-col lg:flex-row min-h-[calc(100vh-5rem)] h-[calc(100vh-5rem)] pt-20 bg-dark-950">
       {/* 3D Canvas - 70% */}
       <div className="flex-1 lg:w-[70%] relative bg-dark-950">
         <BoatCanvas color={currentColor} activeAccessoryIds={activeAccessoryIds} />
